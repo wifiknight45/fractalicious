@@ -1,0 +1,36 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import colors
+
+# Define parameters
+width, height = 2000, 2000  # Higher resolution
+max_iter = 500  # More iterations for finer detail
+threshold = 2.0  # Escape threshold
+
+# Zoom into an intricate region (near the "seahorse valley")
+x_min, x_max = -0.748, -0.747
+y_min, y_max = 0.1, 0.101
+x = np.linspace(x_min, x_max, width)
+y = np.linspace(y_min, y_max, height)
+c = x[:, None] + 1j * y[None, :]
+
+# Initialize arrays
+z = np.zeros((width, height), dtype=complex)
+escape_time = np.full((width, height), max_iter, dtype=int)
+not_escaped = np.full((width, height), True, dtype=bool)
+
+# Iterate to compute the Mandelbrot set
+for i in range(max_iter):
+    z[not_escaped] = z[not_escaped]**2 + c[not_escaped]
+    escaped = (np.abs(z) > threshold) & not_escaped
+    escape_time[escaped] = i
+    not_escaped[escaped] = False
+
+# Normalize escape times for smoother color gradients
+norm = colors.LogNorm(vmin=1, vmax=max_iter)
+plt.figure(figsize=(10, 10))
+plt.imshow(escape_time, extent=[x_min, x_max, y_min, y_max], cmap='inferno', norm=norm, origin='lower')
+plt.colorbar(label='Iteration Count')
+plt.title('Intricate Mandelbrot Set Zoom')
+plt.axis('equal')  # Ensure proper aspect ratio
+plt.savefig('mandelbrot_intricate.png', dpi=300, bbox_inches='tight')  # Save high-quality image
