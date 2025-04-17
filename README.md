@@ -1,6 +1,6 @@
 # fractalicious
 a visualization of the Mandelbrot Set* 
-Mandelbrot Set Visualization
+(i.e. Mandelbrot Set Visualization)
 
 This Python script generates a visualization of the Mandelbrot set, a famous fractal named after the mathematician Benoit Mandelbrot. The script uses NumPy for efficient array computations and Matplotlib for plotting the resulting image.
 
@@ -253,6 +253,21 @@ If you’re curious to dive deeper, here are some ideas to build upon
 
 The Mandelbrot set is a set of complex numbers defined by the rule \( z = z^2 + c \), where points are included if the sequence doesn’t escape to infinity. It’s visualized as a black region (the set) surrounded by colorful patterns (points outside the set), with a fractal boundary of infinite complexity. Despite its simple definition, it reveals profound mathematical beauty, connecting algebra, geometry, chaos, and art. The script you provided brings this to life by computing and plotting the set, letting you explore this mathematical wonder.
 
-If you have questions, want to tweak the script go for it! 
+More fascinating info abou the Mandelbrot set viz. contains many regions with distinct patterns and features, often named by enthusiasts and mathematicians based on their visual appearance. Here are some popular names similar to "Seahorse Valley," which refer to specific regions or features within the Mandelbrot set:
+
+Seahorse Valley: A famous region near the real axis, characterized by spirals resembling seahorses.
+Elephant Valley: A region with structures that look like the trunks of elephants.
+Double-Spiral Valley: A region featuring intricate double spiral patterns.
+The Needle: A thin, stretched-out region in the Mandelbrot set.
+The Valley of the Satellites: An area containing smaller copies (satellites) of the Mandelbrot set.
+The Starfish: A region with radial arms resembling a starfish.
+The Mini-Mandelbrots: Smaller replicas of the Mandelbrot set scattered throughout.
+The Tuning Fork: A region resembling the shape of a tuning fork.
+The Spiral Arms: Areas with spiral-like patterns extending outward.
+The Dragon Valley: A region with shapes that look like dragon curves.
+
+These names are informal and primarily based on visual resemblance. You can explore these areas by adjusting the zoom and coordinates in Mandelbrot set visualization script. 
+
+If you have questions or want to tweak the script have it bruh. 
 Fiat Lux 
 
