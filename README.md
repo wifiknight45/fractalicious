@@ -52,7 +52,7 @@ Higher max_iter or resolution increases computation time.
 The script uses vectorized operations for efficiency but may still be slow for very high resolutions.
 developed with xAI (Grok 3), Google Colab & Microsoft Copilot for the purposes of learning and teaching python scripting. Music & vibes by wifiknight45
 
-**UPDATE**
+**UPDATE v2**
 Release Notes on Fractalicious exe.G3v2:
 Higher Resolution:
 Changed width, height to 2000x2000 (from 1000x1000) to capture finer details. This increases computation time but produces a sharper image.
@@ -79,6 +79,34 @@ Different zoom regions (e.g., try x_min, x_max = -1.25, -1.24, y_min, y_max = 0.
 Other colormaps (e.g., 'magma', 'viridis', or 'twilight').
 Higher max_iter (e.g., 1000) for even more detail, though this increases runtime.
 Viewing the Image: Open mandelbrot_intricate.png in an image viewer and zoom in to explore the fractal patterns.
+
+**Updates v3**
+Resolution (1500x1500):
+Higher than the original (1000x1000) to capture more detail in the fractal boundary, but lower than the augmented (2000x2000) to keep computation time reasonable and avoid the hyper-detailed look of the zoomed-in image.
+Zoom Region (x: [-1.0, -0.5], y: [0.0, 0.5]):
+This region is a compromise between the original’s full view (-2 to 1, -1.5 to 1.5) and the augmented’s tight zoom (-0.748 to -0.747, 0.1 to 0.101). It focuses on a part of the Mandelbrot set’s boundary with visible bulbs, spirals, and fractal patterns, but it’s not so zoomed in that it shows only fine tendrils like the seahorse valley.
+This area includes interesting features (e.g., smaller bulbs and boundary details) without requiring the extreme magnification of the augmented script.
+Max Iterations (250):
+More iterations than the original (100) to reveal finer variations in escape times, which enhances the visibility of fractal patterns. Fewer than the augmented (500) to avoid the ultra-fine detail that comes with deep zooms and high iterations.
+Colormap and Visualization:
+Uses the 'plasma' colormap, which is vibrant and clear (like 'inferno') but less intense, aligning with a middle ground between the original’s simple 'hot' and the augmented’s sophisticated 'inferno' with logarithmic scaling.
+Plots escape_time directly (like the augmented script) for consistency, but without logarithmic normalization (closer to the original’s simplicity) to keep the color mapping straightforward.
+Includes a colorbar with a label for clarity, as in the augmented script.
+Output:
+Saves the image as 'mandelbrot_intermediate.png' with dpi=150, a middle ground between the original’s display-only output and the augmented’s high-quality dpi=300 save. This ensures good quality for viewing details without a large file size.
+Uses plt.figure(figsize=(8, 8)) and plt.axis('equal') to maintain a balanced aspect ratio, similar to the augmented script but with a slightly smaller figure size.
+Expected Outcome
+The resulting image (mandelbrot_intermediate.png) will show a portion of the Mandelbrot set with:
+Black regions representing points in the set, forming bulbs and cardioid-like shapes.
+Colorful boundaries (in the 'plasma' colormap) showing fractal patterns like spirals and smaller bulbs, more detailed than the original’s broad view but less intricate than the augmented’s tight zoom into seahorse-like tendrils.
+Moderate detail: The 1500x1500 resolution and 250 iterations provide clear fractal features without the hyper-fine structures of the augmented image.
+The image will feel like a “zoomed-in” version of the original, showing recognizable Mandelbrot set features (e.g., bulbs) with enhanced detail, but it won’t have the extreme intricacy of the augmented script’s tightly focused view.
+
+Notes
+Computation Time: This script will run faster than the augmented version (due to lower resolution and fewer iterations) but slower than the original. Expect a runtime of a minute or two, depending on your hardware.
+Customization: You can adjust the zoom region (e.g., try x: [-0.8, -0.6], y: [0.2, 0.4]) or colormap (e.g., 'viridis') to explore other moderately detailed areas.
+Viewing: Open the saved PNG and zoom in to see fractal patterns, which will be more pronounced than in the original but less complex than in the augmented image.
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
