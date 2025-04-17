@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define parameters
+width, height = 1000, 1000 # Resolution of the image
+max_iter = 100 # Maximum number of iterations
+threshold = 2.0 # Escape threshold
+
+# Create a grid of complex numbers
+x = np.linspace(-2, 1, width)
+y = np.linspace(-1.5, 1.5, height)
+c = x[:, None] + 1j * y[None, :]
+
+# Initialize arrays
+z = np.zeros((width, height), dtype=complex)
+escape_time = np.full((width, height), max_iter, dtype=int)
+not_escaped = np.full((width, height), True, dtype=bool)
+
+# Iterate to compute the Mandelbrot set
+for i in range(max_iter):
+    z[not_escaped] = z[not_escaped]**2 + c[not_escaped]
+    escaped = (np.abs(z) > threshold) & not_escaped
+    escape_time[escaped] = i
+    not_escaped[escaped] = False
+
+# Plot the Mandelbrot set
+plt.imshow(max_iter - escape_time, extent=[-2, 1, -1.5, 1.5], cmap='hot', origin='lower')
+plt.colorbar()
+plt.title('Mandelbrot Set')
+plt.show()
